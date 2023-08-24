@@ -138,7 +138,7 @@ class RetClassifier:
             'Validation Loss' : self.val_loss_list,
             'Validation Accuracy' : self.val_acc_list
         })
-        df.to_csv('train_val_results_sports.csv', index=False)
+        df.to_csv('train_val_results.csv', index=False)
 
     def plot_loss(self):
         plt.figure()
@@ -147,7 +147,7 @@ class RetClassifier:
         plt.xlabel('Epoch')
         plt.ylabel('Loss')
         plt.legend()
-        plt.savefig('sports_loss_plot.png')
+        plt.savefig('loss_plot.png')
 
     def plot_accuracy(self):
         plt.figure()
@@ -156,7 +156,7 @@ class RetClassifier:
         plt.xlabel('Epoch')
         plt.ylabel('Accuracy')
         plt.legend()
-        plt.savefig('sports_acc_plot.png')
+        plt.savefig('acc_plot.png')
 
     def load_ckpt(self, ckpt_file):
         '''
