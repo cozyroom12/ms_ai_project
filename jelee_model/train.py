@@ -173,19 +173,6 @@ class RetClassifier:
         self.val_loss_list = ckpt["val_losses"]
         self.val_acc_list = ckpt["val_accs"]
 
-# EfficientNet B3 with drop_out
-class RegularizedEfficientNetB3(nn.Module):
-    def __init__(self, num_classes=5, dropout_prob=0.5):
-        super(RegularizedEfficientNetB3, self).__init__()
-        self.efficientnet = efficientnet_b3(EfficientNet_B3_Weights)
-        self.efficientnet.classifier = nn.Sequential(
-            self.efficientnet.classifier,
-            nn.Dropout(dropout_prob),
-            nn.Linear(self.efficientnet.classifier[1].in_features, num_classes)
-        )
-    def forward(self, x):
-        return self.efficientnet(x)
-
 
 if __name__ == "__main__" :
     parser = argparse.ArgumentParser()
