@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>diabetic-retinopathy Inference</title>
+    </head>
+    <body>
+        <h1>업로드 한 이미지</h1>
+        <p>
+         <button type="button" onclick="location.href='/upload'">다른 이미지 검사</button>
+        </p>
+        <img src="{{ url_for('static', filename=file_path) }}" width="175" height="175">
+        <p>
+            모델 수행 결과: {{prediction_value}}
+        </p>
+    </body>
+</html>
